@@ -23,9 +23,41 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Documentation & Internal Logs (Security Exclusion)
+GROQ_INTEGRATION.md
+GROQ_FREE_TIER.md
+GROQ_MIGRATION_COMPLETE.md
+worklog.md
+agent-context.md
+ALL_DOCUMENTATION_READY.md
+DOCUMENTATION_INDEX.md
+CHECKLIST.md
+RAG_SYSTEM_README.md
+RAG_ENTERPRISE_FEATURES.md
+DOWNLOAD_README.md
+DOWNLOAD_INSTRUCTIONS.md
+DOWNLOAD_PACKAGE_README.md
+COMPLETE_TEST_SUITE.md
+DOCUMENTATION_SUMMARY.md
+TEST_FINDINGS_JAN_19.md
+TEST_EXECUTION_GUIDE.md
+ALL_DOCUMENTATION_READY.md
+DOWNLOAD_PACKAGE_README.md
+rebuild-test-index.ts
+execute-rag-suite.ts
+check-pdf-content.ts
+reset-db.ts
+check-deps.ts
+test-pdf-lib.ts
+verify-engines.ts
+test-pdf-new.ts
+test-pdf-direct.ts
+rebuild-test-index.ts
+test-ocr-standalone.ts
+.env
+
 # local env files
 .env*.local
-.env
 
 # vercel
 .vercel
