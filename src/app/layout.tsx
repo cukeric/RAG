@@ -14,23 +14,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Plant Intelligence Systems",
+  title: "RAG Decision Support System",
   description: "AI-Powered Manufacturing & Quality Analytics Platform",
-  keywords: ["Manufacturing", "Quality Analytics", "AI", "RAG", "Plant Intelligence"],
-  authors: [{ name: "Plant Intelligence Team" }],
+  keywords: ["Manufacturing", "Quality Analytics", "Enterprise", "RAG", "Decision Support"],
+  authors: [{ name: "Enterprise RAG Team" }],
   icons: {
-    icon: "/favicon.ico", // Assuming standard favicon or updated later
+    icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Plant Intelligence Systems",
+    title: "RAG Decision Support System",
     description: "AI-Powered Manufacturing & Quality Analytics Platform",
-    url: "https://plant-intelligence.systems",
-    siteName: "Plant Intelligence Systems",
+    url: "https://rag-decision-support.systems",
+    siteName: "RAG Decision Support System",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Plant Intelligence Systems",
+    title: "RAG Decision Support System",
     description: "AI-Powered Manufacturing & Quality Analytics Platform",
   },
 };

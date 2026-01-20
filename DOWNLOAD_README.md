@@ -1,12 +1,12 @@
-# Plant Intelligence Systems - Download & Deployment Guide
+# RAG Decision Support System - Download & Deployment Guide
 
-**AI-Powered Manufacturing & Quality Analytics Platform**
+**AI-powered Manufacturing & Quality Analytics Platform**
 
 ---
 
 ## System Overview
 
-**Plant Intelligence Systems** is a production-ready AI-powered decision support platform designed for manufacturing organizations. It provides comprehensive analysis of production data, quality reports, productivity metrics, staffing performance, departmental performance, cost estimates, and defect reduction savings.
+**RAG Decision Support System** is a production-ready AI-powered decision support platform designed for manufacturing organizations. It provides comprehensive analysis of production data, quality reports, productivity metrics, staffing performance, departmental performance, cost estimates, and defect reduction savings.
 
 ### Key Features
 - ✅ Multi-format document processing (PDF, DOC, DOCX, XLS, XLSX, CSV, TXT, Images)
@@ -515,8 +515,8 @@ See [COST_ANALYSIS.md](./COST_ANALYSIS.md) for detailed cost breakdown.
 
 ## License
 
-Internal use only - Plant Intelligence Systems
-AI-Powered Manufacturing & Quality Analytics Platform
+Internal use only - RAG Decision Support System
+AI-powered Manufacturing & Quality Analytics Platform
 
 ---
 
@@ -546,6 +546,6 @@ AI-Powered Manufacturing & Quality Analytics Platform
 
 ---
 
-**Plant Intelligence Systems - Production Ready AI for Manufacturing**
+**RAG Decision Support System - Production Ready AI for Manufacturing**
 
 For questions or support, refer to the comprehensive documentation included in this package.

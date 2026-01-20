@@ -1,6 +1,6 @@
 # ALL DOCUMENTATION READY FOR DOWNLOAD
 
-**Plant Intelligence Systems v1.0.0**
+**RAG Decision Support System v1.0.0**
 
 ---
 
@@ -360,7 +360,7 @@ Includes:
 
 **ALL DOCUMENTATION IS READY FOR DOWNLOAD**
 
-**Plant Intelligence Systems v1.0.0 - Production Ready**
+**RAG Decision Support System v1.0.0 - Production Ready**
 
 ---
 

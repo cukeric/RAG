@@ -1,4 +1,4 @@
-# Plant Intelligence Systems - Quick Start Guide
+# RAG Decision Support System - Quick Start Guide
 
 **AI-Powered Manufacturing & Quality Analytics Platform**
 
@@ -426,4 +426,4 @@ For detailed documentation:
 
 **Built with Next.js 16, TypeScript, Prisma, Groq, OpenAI, and shadcn/ui**
 
-**Plant Intelligence Systems - AI-Powered Manufacturing & Quality Analytics**
+**RAG Decision Support System - AI-Powered Manufacturing & Quality Analytics**

@@ -57,7 +57,7 @@ interface QueryResult {
   }
 }
 
-export default function PlantIntelligenceSystem() {
+export default function RagDecisionSupportSystem() {
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([])
   const [query, setQuery] = useState('')
   const [isProcessing, setIsProcessing] = useState(false)
@@ -245,7 +245,7 @@ export default function PlantIntelligenceSystem() {
 
     doc.setTextColor(255, 255, 255)
     doc.setFontSize(24)
-    doc.text('Plant Intelligence Systems', margin, 20)
+    doc.text('RAG Decision Support System', margin, 20)
 
     doc.setFontSize(12)
     doc.text('Manufacturing & Quality Analytics Report', margin, 32)
@@ -354,7 +354,7 @@ export default function PlantIntelligenceSystem() {
                 <Factory className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Plant Intelligence Systems</h1>
+                <h1 className="text-3xl font-bold text-slate-900 tracking-tight">RAG Decision Support System</h1>
                 <p className="text-sm text-slate-500">
                   AI-Powered Manufacturing & Quality Analytics
                 </p>
@@ -792,7 +792,7 @@ export default function PlantIntelligenceSystem() {
           <div className="text-center text-sm text-slate-500">
             <div className="flex items-center justify-center gap-2 mb-2">
               <Factory className="w-5 h-5 text-slate-600" />
-              <span className="font-semibold">Plant Intelligence Systems</span>
+              <span className="font-semibold">RAG Decision Support System</span>
             </div>
             <p className="text-slate-400">
               AI-Powered Manufacturing & Quality Analytics Platform

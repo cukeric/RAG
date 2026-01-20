@@ -410,7 +410,7 @@ Mitigation:
 Goal: Launch 3 new product lines by 2027
 
 Key Initiatives:
-- AI-Powered Solutions: Launch ML-driven analytics platform
+- Enterprise Solutions: Launch ML-driven analytics platform
 - Sustainability Line: Develop eco-friendly product alternatives
 - Premium Segment: Introduce high-end, feature-rich offerings
 

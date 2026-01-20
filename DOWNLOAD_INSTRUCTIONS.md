@@ -1,4 +1,4 @@
-# Download Instructions - Plant Intelligence Systems
+# Download Instructions - RAG Decision Support System
 
 ## Quick Download
 
@@ -309,7 +309,7 @@ Check each documentation file for specific troubleshooting sections.
 
 ## Version
 
-**Plant Intelligence Systems v1.0.0**
+**RAG Decision Support System v1.0.0**
 - Release Date: 2024
 - Status: Production Ready
 - Documentation: Complete

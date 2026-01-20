@@ -234,7 +234,7 @@ Agent: Primary Agent
 Task: Update UI with glassmorphic design and calm cbnco colors
 
 Work Log:
-- Changed app title to "Plant Intelligence Systems"
+- Changed app title to "RAG Decision Support System"
 - Implemented new color scheme inspired by cbnco.com:
   - Primary: emerald (production, quality, success)
   - Secondary: blue (information, insights)
@@ -283,7 +283,7 @@ Work Log:
 - ✅ Manufacturing-focused test suite created with 10 test files
 - ✅ 16 comprehensive test queries with manufacturing focus
 - ✅ Beautiful UI with glassmorphic design and cbnco colors
-- ✅ "Plant Intelligence Systems" branding
+- ✅ "RAG Decision Support System" branding
 - ✅ Soft, calming color palette (emerald, blue, amber, slate)
 - ✅ Professional enterprise look and feel
 - ✅ Manufacturing-specific icons and metrics display

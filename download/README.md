@@ -1,4 +1,4 @@
-# Plant Intelligence Systems
+# RAG Decision Support System
 
 **AI-Powered Manufacturing & Quality Analytics Platform**
 
@@ -13,7 +13,7 @@
 
 ## Overview
 
-**Plant Intelligence Systems** is a production-ready AI-powered decision support platform designed specifically for manufacturing organizations. It provides comprehensive analysis of production data, quality reports, productivity metrics, staffing performance, departmental performance, cost estimates, and defect reduction savings using advanced Retrieval-Augmented Generation (RAG) technology.
+**RAG Decision Support System** is a production-ready AI-powered decision support platform designed specifically for manufacturing organizations. It provides comprehensive analysis of production data, quality reports, productivity metrics, staffing performance, departmental performance, cost estimates, and defect reduction savings using advanced Retrieval-Augmented Generation (RAG) technology.
 
 ### Key Capabilities
 
@@ -284,7 +284,7 @@ Response:
 - **Embeddings**: OpenAI text-embedding-3-small
 
 ### Document Processing
-- **PDF**: z-ai-web-dev-sdk VLM skill
+- **PDF**: pdf-parse 
 - **DOCX**: z-ai-web-dev-sdk docx skill
 - **Excel/CSV**: xlsx library
 - **TXT**: Native text processing
@@ -493,7 +493,7 @@ lsof -ti:3000 | xargs kill -9
 
 ## License
 
-Internal use only - Plant Intelligence Systems
+Internal use only - RAG Decision Support System
 AI-Powered Manufacturing & Quality Analytics Platform
 
 ---
@@ -529,6 +529,6 @@ AI-Powered Manufacturing & Quality Analytics Platform
 
 **Built with Next.js 16, TypeScript, Prisma, Groq, OpenAI, and shadcn/ui**
 
-**Plant Intelligence Systems - AI-Powered Manufacturing & Quality Analytics**
+**RAG Decision Support System - AI-Powered Manufacturing & Quality Analytics**
 
 For comprehensive documentation, see the Documentation folder.

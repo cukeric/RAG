@@ -1,8 +1,8 @@
-# Agent Context: Plant Intelligence Systems (RAG)
+# Agent Context: RAG Decision Support System (RAG)
 
 ## Project Overview
 
-**Plant Intelligence Systems** is an enterprise-grade AI-powered decision support system designed for manufacturing organizations. It utilizes Retrieval-Augmented Generation (RAG) to analyze production data, quality reports, productivity metrics, and more.
+**RAG Decision Support System** is an enterprise-grade AI-powered decision support system designed for manufacturing organizations. It utilizes Retrieval-Augmented Generation (RAG) to analyze production data, quality reports, productivity metrics, and more.
 
 ## Key Features
 

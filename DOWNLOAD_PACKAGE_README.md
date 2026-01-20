@@ -1,12 +1,12 @@
 # Documentation Package - Ready for Download
 
-**Plant Intelligence Systems - AI-Powered Manufacturing & Quality Analytics Platform**
+**RAG Decision Support System - AI-powered Manufacturing & Quality Analytics Platform**
 
 ---
 
 ## Package Contents
 
-This documentation package contains all necessary documentation for deploying, using, and understanding the Plant Intelligence Systems platform.
+This documentation package contains all necessary documentation for deploying, using, and understanding the RAG Decision Support System platform.
 
 ---
 
@@ -384,7 +384,7 @@ All documentation is production-ready and suitable for:
 
 ---
 
-**Plant Intelligence Systems - Complete Documentation Package**
+**RAG Decision Support System - Complete Documentation Package**
 
 **Version 1.0.0 - Production Ready**
 

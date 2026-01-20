@@ -191,7 +191,7 @@ Based on the provided context, the strategic pillars and their primary goals are
 
 2. **Product Innovation**:
 - Goal: Launch 3 new product lines by 2027.
-- Key Initiatives: AI-Powered Solutions, Sustainability Line, Premium Segment.
+- Key Initiatives: Enterprise Solutions, Sustainability Line, Premium Segment.
 
 3. **Operational Excellence**:
 - Goal: Achieve 30% cost reduction through efficiency.
@@ -320,7 +320,7 @@ Detailed analysis of company performance:
 **Strategic Initiatives:**
 
 * Target 25% market share by 2027
-* Launch 3 new product lines by 2027 (AI-Powered Solutions, Sustainability Line, and Premium Segment)
+* Launch 3 new product lines by 2027 (Enterprise Solutions, Sustainability Line, and Premium Segment)
 * Increase R&D spend from 5% to 8% of revenue
 * Hire 50 additional engineers and researchers
 * Establish innovation labs in 2 new locations

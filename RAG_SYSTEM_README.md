@@ -1,4 +1,4 @@
-# Plant Intelligence Systems - Complete System Guide
+# RAG Decision Support System - Complete System Guide
 
 **AI-Powered Manufacturing & Quality Analytics Platform**
 
