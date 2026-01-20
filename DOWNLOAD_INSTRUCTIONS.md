@@ -15,41 +15,41 @@ This package includes:
 **Command:**
 ```bash
 cd /home/z/my-project
-mkdir -p plant-intelligence-systems-v1.0
+mkdir -p RAG-decision-support-v1.0
 
 # Copy application
-cp -r src plant-intelligence-systems-v1.0/
-cp -r prisma plant-intelligence-systems-v1.0/
-cp -r db plant-intelligence-systems-v1.0/
-cp -r test-docs plant-intelligence-systems-v1.0/
-cp -r public plant-intelligence-systems-v1.0/
-cp -r skills plant-intelligence-systems-v1.0/
-cp -r examples plant-intelligence-systems-v1.0/
+cp -r src RAG-decision-support-v1.0/
+cp -r prisma RAG-decision-support-v1.0/
+cp -r db RAG-decision-support-v1.0/
+cp -r test-docs RAG-decision-support-v1.0/
+cp -r public RAG-decision-support-v1.0/
+cp -r skills RAG-decision-support-v1.0/
+cp -r examples RAG-decision-support-v1.0/
 
 # Copy configuration
-cp package.json plant-intelligence-systems-v1.0/
-cp bun.lock plant-intelligence-systems-v1.0/
-cp tsconfig.json plant-intelligence-systems-v1.0/
-cp tailwind.config.ts plant-intelligence-systems-v1.0/
-cp postcss.config.mjs plant-intelligence-systems-v1.0/
-cp next.config.ts plant-intelligence-systems-v1.0/
-cp eslint.config.mjs plant-intelligence-systems-v1.0/
-cp components.json plant-intelligence-systems-v1.0/
-cp Caddyfile plant-intelligence-systems-v1.0/
+cp package.json RAG-decision-support-v1.0/
+cp bun.lock RAG-decision-support-v1.0/
+cp tsconfig.json RAG-decision-support-v1.0/
+cp tailwind.config.ts RAG-decision-support-v1.0/
+cp postcss.config.mjs RAG-decision-support-v1.0/
+cp next.config.ts RAG-decision-support-v1.0/
+cp eslint.config.mjs RAG-decision-support-v1.0/
+cp components.json RAG-decision-support-v1.0/
+cp Caddyfile RAG-decision-support-v1.0/
 
 # Copy documentation
-cp *.md plant-intelligence-systems-v1.0/
+cp *.md RAG-decision-support-v1.0/
 
 # Copy environment template
-cp .env plant-intelligence-systems-v1.0/.env.example
+cp .env RAG-decision-support-v1.0/.env.example
 
 # Create archive
-cd plant-intelligence-systems-v1.0
-zip -r ../plant-intelligence-systems-v1.0-complete.zip .
+cd RAG-decision-support-v1.0
+zip -r ../RAG-decision-support-v1.0-complete.zip .
 cd ..
 ```
 
-**Result**: `plant-intelligence-systems-v1.0-complete.zip` (~50MB)
+**Result**: `RAG-decision-support-v1.0-complete.zip` (~50MB)
 
 ---
 
@@ -64,21 +64,21 @@ This package includes:
 **Command:**
 ```bash
 cd /home/z/my-project
-mkdir -p plant-intelligence-docs-v1.0
+mkdir -p rag-decision-support-docs-v1.0
 
 # Copy documentation
-cp *.md plant-intelligence-docs-v1.0/
+cp *.md rag-decision-support-docs-v1.0/
 
 # Copy test documentation
-cp -r test-docs/*.md plant-intelligence-docs-v1.0/test-docs/
+cp -r test-docs/*.md rag-decision-support-docs-v1.0/test-docs/
 
 # Create archive
-cd plant-intelligence-docs-v1.0
-zip -r ../plant-intelligence-docs-v1.0.zip .
+cd rag-decision-support-docs-v1.0
+zip -r ../rag-decision-support-docs-v1.0.zip .
 cd ..
 ```
 
-**Result**: `plant-intelligence-docs-v1.0.zip` (~1MB)
+**Result**: `rag-decision-support-docs-v1.0.zip` (~1MB)
 
 ---
 
@@ -93,39 +93,39 @@ This package includes:
 **Command:**
 ```bash
 cd /home/z/my-project
-mkdir -p plant-intelligence-systems-v1.0-minimal
+mkdir -p RAG-decision-support-v1.0-minimal
 
 # Copy application
-cp -r src plant-intelligence-systems-v1.0-minimal/
-cp -r prisma plant-intelligence-systems-v1.0-minimal/
-cp -r db plant-intelligence-systems-v1.0-minimal/
-cp -r public plant-intelligence-systems-v1.0-minimal/
+cp -r src RAG-decision-support-v1.0-minimal/
+cp -r prisma RAG-decision-support-v1.0-minimal/
+cp -r db RAG-decision-support-v1.0-minimal/
+cp -r public RAG-decision-support-v1.0-minimal/
 
 # Copy configuration
-cp package.json plant-intelligence-systems-v1.0-minimal/
-cp bun.lock plant-intelligence-systems-v1.0-minimal/
-cp tsconfig.json plant-intelligence-systems-v1.0-minimal/
-cp tailwind.config.ts plant-intelligence-systems-v1.0-minimal/
-cp postcss.config.mjs plant-intelligence-systems-v1.0-minimal/
-cp next.config.ts plant-intelligence-systems-v1.0-minimal/
-cp eslint.config.mjs plant-intelligence-systems-v1.0-minimal/
-cp components.json plant-intelligence-systems-v1.0-minimal/
-cp Caddyfile plant-intelligence-systems-v1.0-minimal/
+cp package.json RAG-decision-support-v1.0-minimal/
+cp bun.lock RAG-decision-support-v1.0-minimal/
+cp tsconfig.json RAG-decision-support-v1.0-minimal/
+cp tailwind.config.ts RAG-decision-support-v1.0-minimal/
+cp postcss.config.mjs RAG-decision-support-v1.0-minimal/
+cp next.config.ts RAG-decision-support-v1.0-minimal/
+cp eslint.config.mjs RAG-decision-support-v1.0-minimal/
+cp components.json RAG-decision-support-v1.0-minimal/
+cp Caddyfile RAG-decision-support-v1.0-minimal/
 
 # Copy essential documentation
-cp QUICK_START.md plant-intelligence-systems-v1.0-minimal/
-cp README.md plant-intelligence-systems-v1.0-minimal/
+cp QUICK_START.md RAG-decision-support-v1.0-minimal/
+cp README.md RAG-decision-support-v1.0-minimal/
 
 # Copy environment template
-cp .env plant-intelligence-systems-v1.0-minimal/.env.example
+cp .env RAG-decision-support-v1.0-minimal/.env.example
 
 # Create archive
-cd plant-intelligence-systems-v1.0-minimal
-zip -r ../plant-intelligence-systems-v1.0-minimal.zip .
+cd RAG-decision-support-v1.0-minimal
+zip -r ../RAG-decision-support-v1.0-minimal.zip .
 cd ..
 ```
 
-**Result**: `plant-intelligence-systems-v1.0-minimal.zip` (~10MB)
+**Result**: `RAG-decision-support-v1.0-minimal.zip` (~10MB)
 
 ---
 
@@ -169,8 +169,8 @@ cd ..
 
 ### 1. Extract the Package
 ```bash
-unzip plant-intelligence-systems-v1.0-complete.zip
-cd plant-intelligence-systems-v1.0
+unzip RAG-decision-support-v1.0-complete.zip
+cd RAG-decision-support-v1.0
 ```
 
 ### 2. Read the Documentation
