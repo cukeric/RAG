@@ -17,8 +17,8 @@
 - **Frontend**: Next.js 16 (App Router), TypeScript 5, Tailwind CSS 4, shadcn/ui, Framer Motion.
 - **Backend**: Next.js API Routes, Prisma ORM, SQLite (local database).
 - **AI/ML**:
-  - **LLM**: Groq API (Llama 3.1 70B Versatile).
-  - **Embeddings**: OpenAI text-embedding-3-small (or fallback).
+  - **LLM**: Groq API (Llama 3.3 70B).
+  - **Embeddings**: Local Xenova Embeddings (@xenova/transformers) (or fallback).
 - **Runtime**: Bun (recommended) or Node.js.
 
 ## Architecture

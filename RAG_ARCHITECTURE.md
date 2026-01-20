@@ -44,37 +44,36 @@
 │  │ - Semantic         │   │   ┌──────────────────────────────┐
 │  └──────────┬──────────┘   │   │    Self-RAG Grader           │
 │             │              │   │  ┌────────────────────────┐  │
-│             ▼              │   │  │ Retrieval Quality     │  │
-│  ┌─────────────────────┐   │   │  │ - Relevance Score     │  │
-│  │  Embedding Service  │   │   │  │ - Is Relevant?        │  │
-│  │  OpenAI embeddings  │   │   │  └────────────────────────┘  │
-│  │  text-embedding-3   │   │   │  ┌────────────────────────┐  │
-│  └──────────┬──────────┘   │   │  │ Response Quality      │  │
-└─────────────┼───────────────┘   │  │ - Relevance           │  │
-             │                    │  │ - Faithfulness        │  │
-             ▼                    │  │ - Hallucination Risk  │  │
-┌────────────────────────────────┐ │  └────────────────────────┘  │
-│        VECTOR STORAGE          │ └──────────┬───────────────────┘
-│  (SQLite + JSON embeddings)    │            │
-│  ┌─────────────────────────┐   │            ▼
-│  │ Document Table          │   │  ┌──────────────────────────────┐
-│  │ - metadata              │   │  │  Structured Output Gen       │
-│  │ - status                │   │  │  - Executive Summary         │
-│  ├─────────────────────────┤   │  │  - Detailed Answer           │
-│  │ Chunk Table             │   │  │  - Risk Indicators          │
-│  │ - content               │   │  │  - Confidence Score          │
-│  │ - embedding (JSON)      │   │  │  - Source Reasoning         │
-│  │ - metadata              │   │  └──────────┬───────────────────┘
-│  ├─────────────────────────┤   │             │
-│  │ Query Table             │   │             ▼
-│  │ - question, answer      │   │  ┌──────────────────────────────┐
-│  │ - risk indicators       │   │  │  Database Storage           │
-│  │ - confidence score      │   │  │  - Query records            │
-│  ├─────────────────────────┤   │  │  - RAG grades               │
-│  │ Citation Table          │   │  │  - Citations                │
-│  │ - relevance scores      │   │  │  - Audit trail              │
-│  ├─────────────────────────┤   │  └──────────────────────────────┘
-│  │ RagGrade Table          │   │
+│  ┌─────────────────────┐   │   │  │ Retrieval Quality     │  │
+│  │  Embedding Service  │   │   │  │ - Relevance Score     │  │
+│  │  Xenova (Local)     │   │   │  │ - Is Relevant?        │  │
+│  │  all-MiniLM-L6-v2   │   │   │  └────────────────────────┘  │
+│  └──────────┬──────────┘   │   │  ┌────────────────────────┐  │
+└─────────────┼───────────────┘   │  │ Response Quality      │  │
+             │                    │  │ - Relevance           │  │
+             ▼                    │  │ - Faithfulness        │  │
+┌────────────────────────────────┐ │  │ - Hallucination Risk  │  │
+│        VECTOR STORAGE          │ └─────────────────────────┘  │
+│  (SQLite + JSON embeddings)    │ └──────────┬───────────────────┘
+│  ┌─────────────────────────┐   │            │
+│  │ Document Table          │   │            ▼
+│  │ - metadata              │   │  ┌──────────────────────────────┐
+│  │ - status                │   │  │  Structured Output Gen       │
+│  ├─────────────────────────┤   │  │  - Executive Summary         │
+│  │ Chunk Table             │   │  │  - Detailed Answer           │
+│  │ - content               │   │  │  - Risk Indicators          │
+│  │ - embedding (JSON)      │   │  │  - Confidence Score          │
+│  │ - metadata              │   │  │  - Source Reasoning         │
+│  ├─────────────────────────┤   │  └──────────┬───────────────────┘
+│  │ Query Table             │   │             │
+│  │ - question, answer      │   │             ▼
+│  │ - risk indicators       │   │  ┌──────────────────────────────┐
+│  │ - confidence score      │   │  │  Database Storage           │
+│  ├─────────────────────────┤   │  │  - Query records            │
+│  │ Citation Table          │   │  │  - RAG grades               │
+│  │ - relevance scores      │   │  │  - Citations                │
+│  ├─────────────────────────┤   │  │  - Audit trail              │
+│  │ RagGrade Table          │   │  └──────────────────────────────┘
 │  │ - retrieval quality    │   │
 │  │ - faithfulness          │   │
 │  └─────────────────────────┘   │
@@ -82,14 +81,13 @@
              │
              ▼
 ┌──────────────────────────────────────────────────────────────┐
-│                   EXTERNAL AI SERVICES                        │
+│                   EXTERNAL & LOCAL AI SERVICES                │
 │  ┌─────────────────┐         ┌─────────────────┐              │
-│  │  OpenAI GPT-4o  │         │  OpenAI Embed.  │              │
-│  │  - Text Gen     │         │  text-embedding-3│              │
-│  │  - Grading      │         │  -small         │              │
+│  │  Groq Cloud     │         │ Xenova (Local)  │              │
+│  │  - Llama 3.3 70B│         │ - Transformers  │              │
+│  │  - Inference    │         │ - Embeddings    │              │
 │  └─────────────────┘         └─────────────────┘              │
 └──────────────────────────────────────────────────────────────┘
-```
 
 ## Data Flow
 
@@ -105,7 +103,7 @@
 1. User submits question → `/api/rag/query`
 2. Query converted to embedding
 3. Semantic search finds relevant chunks
-4. GPT-4o generates answer with context
+4. Groq Llama 3.3 70B generates answer with context
 5. Self-RAG grader evaluates quality
 6. Structured output created (summary, risks, reasoning)
 7. Citations linked to source chunks
@@ -114,6 +112,7 @@
 ## Quality Assurance Pipeline
 
 ```
+
 ┌─────────────────────────────────────────────────────────────┐
 │                    SELF-RAG GRADING PIPELINE                │
 │                                                             │
@@ -155,12 +154,14 @@
 │    • Action Items (if needed)                               │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
+
 ```
 
 ## Enterprise AI Features
 
 ### 1. Hallucination Mitigation
 ```
+
 ┌────────────────────────────────────┐
 │   FAITHFULNESS VALIDATION         │
 │                                    │
@@ -169,10 +170,12 @@
 │  ✓ Risk level classification       │
 │  ✓ Automated quality scoring      │
 └────────────────────────────────────┘
+
 ```
 
 ### 2. Explainability
 ```
+
 ┌────────────────────────────────────┐
 │   COMPLETE TRACEABILITY            │
 │                                    │
@@ -181,10 +184,12 @@
 │  ✓ Relevance scores                │
 │  ✓ Step-by-step reasoning          │
 └────────────────────────────────────┘
+
 ```
 
 ### 3. Context Management
 ```
+
 ┌────────────────────────────────────┐
 │   INTELLIGENT CHUNKING              │
 │                                    │
@@ -193,10 +198,12 @@
 │  ✓ Semantic coherence              │
 │  ✓ Efficient vector storage        │
 └────────────────────────────────────┘
+
 ```
 
 ### 4. Quality Metrics
 ```
+
 ┌────────────────────────────────────┐
 │   MULTI-DIMENSIONAL EVALUATION      │
 │                                    │
@@ -206,11 +213,13 @@
 │  ✓ Overall quality                 │
 │  ✓ Improvement recommendations     │
 └────────────────────────────────────┘
+
 ```
 
 ## Database Schema Relationships
 
 ```
+
 Document (1) ──────── (*) Chunk
     │                      │
     │                      │
@@ -221,6 +230,7 @@ Document (1) ──────── (*) Chunk
     (*)
     │
     (1) RagGrade
+
 ```
 
 ## Key Benefits

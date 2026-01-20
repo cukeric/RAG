@@ -47,7 +47,7 @@ bun run dev
 
 The application will be available at: `http://localhost:3000`
 
-**Note**: The system uses Groq Llama 3.1 70B for fast, cost-effective LLM operations. See [GROQ_INTEGRATION.md](./GROQ_INTEGRATION.md) for details.
+**Note**: The system uses Groq Llama 3.3 70B for fast, cost-effective LLM operations. See [GROQ_INTEGRATION.md](./GROQ_INTEGRATION.md) for details.
 
 ---
 
@@ -376,12 +376,12 @@ For detailed documentation:
 ### Groq Free Tier
 
 - **3,000+ queries/month** at no cost
-- **Fast inference**: Llama 3.1 70B
+- **Fast inference**: Llama 3.3 70B
 - **High quality**: State-of-the-art reasoning
 
 ### Minimal Costs
 
-- **OpenAI Embeddings**: ~$0.02 per 1M tokens
+- **Local Xenova Embeddings**: ~$0.02 per 1M tokens
 - **Monthly estimate**: $0.05 - $0.50 for moderate usage
 - **Scale to paid**: Upgrade only when needed
 

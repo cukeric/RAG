@@ -174,12 +174,12 @@ All documentation has been updated, reviewed, and is ready for download.
 - **Framework**: Next.js 16
 - **Language**: TypeScript 5
 - **Database**: Prisma + SQLite
-- **AI**: Groq Llama 3.1 70B
+- **AI**: Groq Llama 3.3 70B
 - **UI**: Tailwind CSS 4 + shadcn/ui
 
 ### Cost Structure
 - **Groq Free Tier**: 3,000+ queries/month (FREE)
-- **OpenAI Embeddings**: ~$0.02 per 1M tokens
+- **Local Xenova Embeddings**: ~$0.02 per 1M tokens
 - **Total Monthly**: $0 - $0.50 (free tier)
 
 ---

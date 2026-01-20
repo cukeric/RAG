@@ -12,7 +12,7 @@ An enterprise-grade AI-powered decision support system using Retrieval-Augmented
   - Fixed-size chunking with configurable overlap
   - Recursive chunking (paragraphs → sentences)
   - Semantic chunking for better coherence
-- **Vector Embeddings**: OpenAI text-embedding-3-small model for semantic understanding
+- **Vector Embeddings**: Local Xenova Embeddings (@xenova/transformers) model for semantic understanding
 - **Semantic Search**: Cosine similarity-based retrieval with top-K and minimum relevance filtering
 
 ### Manufacturing Analytics Capabilities
@@ -101,8 +101,8 @@ RagGrade {
 - xlsx for Excel spreadsheets
 
 **AI Models**
-- Groq Llama 3.1 70B Versatile (generation & grading)
-- OpenAI text-embedding-3-small (embeddings, optional)
+- Groq Llama 3.3 70B (generation & grading)
+- Local Xenova Embeddings (@xenova/transformers) (embeddings, optional)
 - Fallback hash-based embeddings (testing)
 
 ## API Endpoints

@@ -34,13 +34,13 @@
 ### Prerequisites
 - Node.js 18+ or Bun runtime
 - Groq API key (get free at https://console.groq.com)
-- OpenAI API key (optional, for embeddings)
+- OpenAI API key (optional)
 
 ### Installation
 
 ```bash
 # Clone or extract the downloaded package
-cd plant-intelligence-systems
+cd RAG-decision-support
 
 # Install dependencies
 bun install
@@ -111,7 +111,7 @@ Access the application at: `http://localhost:3000`
 - **Multi-format Support**: PDF, DOC, DOCX, XLS, XLSX, CSV, TXT, JPG, PNG, GIF
 - **Automatic Extraction**: Text extraction from all formats
 - **Intelligent Chunking**: Fixed, recursive, and semantic chunking strategies
-- **Vector Embeddings**: OpenAI text-embedding-3-small for semantic understanding
+- **Vector Embeddings**: Local Xenova Embeddings (@xenova/transformers) for semantic understanding
 
 ### Manufacturing Analytics
 - **Production Analysis**:
@@ -280,8 +280,8 @@ Response:
 ### Backend
 - **API**: Next.js API Routes
 - **Database**: Prisma ORM + SQLite
-- **AI**: Groq Llama 3.1 70B (3,000+ free queries/month)
-- **Embeddings**: OpenAI text-embedding-3-small
+- **AI**: Groq Llama 3.3 70B (3,000+ free queries/month)
+- **Embeddings**: Local Xenova Embeddings (@xenova/transformers)
 
 ### Document Processing
 - **PDF**: pdf-parse 
@@ -296,11 +296,11 @@ Response:
 
 ### Groq Free Tier
 - **3,000+ queries/month** - FREE
-- **Llama 3.1 70B model** - State-of-the-art reasoning
+- **Llama 3.3 70B model** - State-of-the-art reasoning
 - **Fast inference** - Low latency (~2-5 seconds per query)
 
-### OpenAI Embeddings
-- **text-embedding-3-small**: ~$0.02 per 1M tokens
+### Local Xenova Embeddings
+- **all-MiniLM-L6-v2**: ~$0.02 per 1M tokens
 - **Typical monthly cost**: $0.05 - $0.50
 
 ### Total Monthly Cost
@@ -360,14 +360,14 @@ vercel
 
 ### Production (Docker)
 ```bash
-docker build -t plant-intelligence-systems .
-docker run -p 3000:3000 plant-intelligence-systems
+docker build -t RAG-decision-support .
+docker run -p 3000:3000 RAG-decision-support
 ```
 
 ### Production (VPS/PM2)
 ```bash
 bun install -g pm2
-pm2 start bun --name "plant-intelligence" -- run start
+pm2 start bun --name "rag-decision-support" -- run start
 pm2 save
 pm2 startup
 ```
@@ -379,7 +379,7 @@ See [DOWNLOAD_README.md](./DOWNLOAD_README.md) for detailed deployment guide.
 ## File Structure
 
 ```
-plant-intelligence-systems/
+RAG-decision-support/
 ├── src/
 │   ├── app/
 │   │   ├── page.tsx                    # Main UI

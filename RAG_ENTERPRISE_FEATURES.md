@@ -70,7 +70,7 @@ chunkTextSemantic(text, maxChunkSize)
 ## 3. EMBEDDINGS & VECTOR DATABASE ✅
 
 ### Embedding Generation
-- **Model**: OpenAI text-embedding-3-small
+- **Model**: local @xenova/transformers
 - **Service**: `/src/lib/embedding-service.ts`
 - **Batch Processing**: Support for multiple texts
 
@@ -439,8 +439,8 @@ sourceReasoning: [
 - OpenAI SDK (embeddings, optional)
 
 ### AI Models
-- **Groq Llama 3.1 70B Versatile** (generation & grading)
-- OpenAI text-embedding-3-small (embeddings, optional)
+- **Groq Llama 3.3 70B** (generation & grading)
+- local @xenova/transformers (embeddings, optional)
 - Fallback hash-based embeddings (testing only)
 
 ### Document Processing

@@ -48,15 +48,6 @@ An enterprise-grade Decision Support System powered by Retrieval-Augmented Gener
 │  │ - Semantic         │   │   ┌──────────────────────────────┐
 │  └──────────┬──────────┘   │   │    Self-RAG Grader           │
 │             │              │   │  ┌────────────────────────┐  │
-│             ▼              │   │  │ Retrieval Quality     │  │
-│  ┌─────────────────────┐   │   │  │ - Relevance Score     │  │
-│  │  Embedding Service  │   │   │  │ - Is Relevant?        │  │
-│  │  OpenAI embeddings  │   │   │  └────────────────────────┘  │
-│  │  text-embedding-3   │   │   │  ┌────────────────────────┐  │
-│  └──────────┬──────────┘   │   │  │ Response Quality      │  │
-└─────────────┼───────────────┘   │  │ - Relevance           │  │
-             │                    │  │ - Faithfulness        │  │
-             ▼                    │  │ - Hallucination Risk  │  │
 ┌────────────────────────────────┐ │  └────────────────────────┘  │
 │        VECTOR STORAGE          │ └──────────┬───────────────────┘
 │  (SQLite + JSON embeddings)    │            │
@@ -86,11 +77,11 @@ An enterprise-grade Decision Support System powered by Retrieval-Augmented Gener
              │
              ▼
 ┌──────────────────────────────────────────────────────────────┐
-│                   EXTERNAL AI SERVICES                        │
+│                   EXTERNAL & LOCAL AI SERVICES                │
 │  ┌─────────────────┐         ┌─────────────────┐              │
-│  │  OpenAI GPT-4o  │         │  OpenAI Embed.  │              │
-│  │  - Text Gen     │         │  text-embedding-3│              │
-│  │  - Grading      │         │  -small         │              │
+│  │  Groq Cloud     │         │ Xenova (Local)  │              │
+│  │  - Llama 3.3 70B│         │ - Transformers  │              │
+│  │  - Inference    │         │ - Embeddings    │              │
 │  └─────────────────┘         └─────────────────┘              │
 └──────────────────────────────────────────────────────────────┘
 ```
@@ -98,6 +89,7 @@ An enterprise-grade Decision Support System powered by Retrieval-Augmented Gener
 ## Data Flow
 
 ### Upload Flow
+
 1. User uploads files → `/api/rag/upload`
 2. Document processor extracts text
 3. Chunking strategy splits text
@@ -106,10 +98,11 @@ An enterprise-grade Decision Support System powered by Retrieval-Augmented Gener
 6. Status updated to "completed"
 
 ### Query Flow
+
 1. User submits question → `/api/rag/query`
 2. Query converted to embedding
 3. Semantic search finds relevant chunks
-4. GPT-4o generates answer with context
+4. Groq Llama 3.3 70B generates answer with context
 5. Self-RAG grader evaluates quality
 6. Structured output created (summary, risks, reasoning)
 7. Citations linked to source chunks
@@ -164,6 +157,7 @@ An enterprise-grade Decision Support System powered by Retrieval-Augmented Gener
 ## Enterprise AI Features
 
 ### 1. Hallucination Mitigation
+
 ```
 ┌────────────────────────────────────┐
 │   FAITHFULNESS VALIDATION         │
@@ -176,6 +170,7 @@ An enterprise-grade Decision Support System powered by Retrieval-Augmented Gener
 ```
 
 ### 2. Explainability
+
 ```
 ┌────────────────────────────────────┐
 │   COMPLETE TRACEABILITY            │
@@ -188,6 +183,7 @@ An enterprise-grade Decision Support System powered by Retrieval-Augmented Gener
 ```
 
 ### 3. Context Management
+
 ```
 ┌────────────────────────────────────┐
 │   INTELLIGENT CHUNKING              │
@@ -200,6 +196,7 @@ An enterprise-grade Decision Support System powered by Retrieval-Augmented Gener
 ```
 
 ### 4. Quality Metrics
+
 ```
 ┌────────────────────────────────────┐
 │   MULTI-DIMENSIONAL EVALUATION      │
@@ -236,11 +233,12 @@ Document (1) ──────── (*) Chunk
 ✅ **Enterprise-Ready**: Addresses all core AI concerns
 ✅ **User-Friendly**: Intuitive interface with real-time feedback
 
-
 ## 🚀 Key Features
 
 - **Multi-format Document Ingestion**: Support for PDF, DOCX, XLS/XLSX, CSV, TXT, and Image OCR.
-- **Advanced RAG Pipeline**: Local embeddings and semantic search powered by `@xenova/transformers`.
+- **Advanced RAG Pipeline**:
+  - **Groq Llama 3.3 70B**: High-performance reasoning and answer generation
+  - **Local Embeddings**: Privacy-first vector generation via `@xenova/transformers` (all-MiniLM-L6-v2)
 - **Self-RAG Grading**: Automated quality assessment, response relevance evaluation, and hallucination detection.
 - **Manufacturing Analytics**: Specialized modules for production, quality, costing, and staffing analysis.
 - **Enterprise-Grade UI**: Modern glassmorphic design built with Next.js, Tailwind CSS, and Framer Motion.
@@ -253,7 +251,7 @@ Document (1) ──────── (*) Chunk
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
 - **Database**: [Prisma ORM](https://www.prisma.io/) with SQLite
 - **AI/LLM**: [Groq API](https://groq.com/) (Llama 3.3 70B)
-- **Embeddings**: Local `@xenova/transformers`
+- **Embeddings**: Local `@xenova/transformers` (all-MiniLM-L6-v2)
 - **OCR**: [Tesseract.js](https://tesseract.projectnaptha.com/)
 - **Document Parsing**: `pdf-parse`, `mammoth`, `xlsx`, `papaparse`
 

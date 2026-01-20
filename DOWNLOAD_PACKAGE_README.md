@@ -229,13 +229,13 @@ This documentation package contains all necessary documentation for deploying, u
 
 ### Groq Free Tier
 - **Queries**: 3,000+ per month (FREE)
-- **Model**: Llama 3.1 70B
+- **Model**: Llama 3.3 70B
 - **Quality**: State-of-the-art reasoning
 - **Documentation**: GROQ_FREE_TIER.md
 
-### OpenAI Embeddings
+### Local Xenova Embeddings
 - **Cost**: ~$0.02 per 1M tokens
-- **Model**: text-embedding-3-small
+- **Model**: all-MiniLM-L6-v2
 - **Usage**: Optional (fallback available)
 - **Documentation**: COST_ANALYSIS.md
 

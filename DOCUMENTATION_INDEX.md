@@ -21,7 +21,7 @@
 ## Groq Integration
 📖 **[GROQ_INTEGRATION.md](./GROQ_INTEGRATION.md)**
 - Groq API configuration
-- Llama 3.1 70B model usage
+- Llama 3.3 70B model usage
 - Benefits and performance
 - Migration details from OpenAI
 
@@ -228,7 +228,7 @@
 ### RAG Fundamentals
 - **Retrieval**: Finding relevant document chunks using semantic search
 - **Augmentation**: Using retrieved context to inform generation
-- **Generation**: Creating answers with AI models (Groq Llama 3.1 70B)
+- **Generation**: Creating answers with AI models (Groq Llama 3.3 70B)
 
 ### Self-RAG
 - **Self-Reflective**: System evaluates its own outputs
@@ -264,8 +264,8 @@
 ### Backend
 - **API**: Next.js API Routes
 - **Database**: Prisma ORM + SQLite
-- **AI SDK**: Groq API (Llama 3.1 70B)
-- **Embeddings**: OpenAI text-embedding-3-small
+- **AI SDK**: Groq API (Llama 3.3 70B)
+- **Embeddings**: Local Xenova Embeddings (@xenova/transformers)
 
 ### Document Processing
 - **PDF**: pdf-parse 
@@ -385,7 +385,7 @@ Yes, all citations are linked to specific chunks with relevance scores. Always v
 - Cross-reference citations
 
 ### Is the system free?
-Yes, the system uses Groq's free tier which supports 3,000+ queries per month at no cost. OpenAI embeddings have minimal cost (~$0.02 per million tokens).
+Yes, the system uses Groq's free tier which supports 3,000+ queries per month at no cost. Local Xenova embeddings are completely free.
 
 ---
 
@@ -454,12 +454,12 @@ See **[COMPLETE_TEST_SUITE.md](./COMPLETE_TEST_SUITE.md)** for complete test doc
 
 ### Groq Free Tier Benefits
 - **3,000+ queries/month** at no cost
-- **Fast inference**: Llama 3.1 70B with low latency
+- **Fast inference**: Llama 3.3 70B with low latency
 - **High quality**: State-of-the-art reasoning capabilities
 - **No API cost**: $0 monthly fee
 
 ### Minimal Costs
-- **OpenAI Embeddings**: ~$0.02 per 1M tokens (negligible)
+- **Local Xenova Embeddings**: ~$0.02 per 1M tokens (negligible)
 - **Monthly estimate**: $0.05 - $0.50 for moderate usage
 - **Scale to paid**: Upgrade only when exceeding free tier
 

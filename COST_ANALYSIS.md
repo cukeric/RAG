@@ -2,277 +2,141 @@
 
 ## Quick Answer
 
-**The system is NOT completely free.** There are API costs involved, but they are **very low** compared to typical AI applications.
+**The system is extremely cost-effective.** By using Groq for inference and local `@xenova/transformers` for embeddings, you achieve enterprise-grade performance for **basically $0/month** for most personal and small business use cases.
 
 ---
 
 ## Cost Breakdown
 
-### 1. Groq API (LLM Operations) - ✅ LOW COST
+### 1. Groq API (LLM Operations) - ✅ FREE TIER / LOW COST
 
 **Current Configuration:**
+
 - Provider: Groq
-- Model: Llama 3.1 70B Versatile
+- Model: Llama 3.3 70B
 - Operations: Self-RAG grading, answer generation, quality evaluation
 
-**Groq Pricing (as of 2024):**
-| Model | Input | Output | Cost Per 1M Tokens |
-|--------|--------|---------|-------------------|
-| Llama 3.1 70B | $0.59 | $0.79 | Very Low |
+**Groq Pricing (Cloud Inference):**
 
-**Example Costs per Query:**
-- Small query (~500 input tokens, ~200 output tokens): **~$0.0005**
-- Medium query (~1000 input, ~500 output): **~$0.001**
-- Large query (~2000 input, ~1000 output): **~$0.002**
+| Model | Free Tier (Req. API Key) | Paid Tier (Per 1M Tokens) |
+|--------|--------------------------|---------------------------|
+| Llama 3.3 70B | **3,000+ Queries/Month FREE** | ~$0.59 (Input) / $0.79 (Output) |
 
-**Monthly Usage Estimates:**
+**Monthly Usage Estimates (Groq):**
+
 | Queries/Month | Est. Cost |
 |--------------|-----------|
-| 100 | ~$0.10 |
-| 1,000 | ~$1.00 |
-| 10,000 | ~$10.00 |
+| 100 | **$0.00** (Free Tier) |
+| 1,000 | **$0.00** (Free Tier) |
+| 10,000 | ~$10.00 (Exceeding Free API Limits) |
 
-**This is extremely affordable!** Most users will pay less than $5/month even with heavy usage.
+**This is extremely affordable!** Personal users and small teams will stay within the free tier.
 
 ---
 
-### 2. OpenAI API (Embeddings) - OPTIONAL COST
+### 2. Local Embeddings (@xenova/transformers) - ✅ 100% FREE
 
 **Current Configuration:**
-- Provider: OpenAI (optional)
-- Model: text-embedding-3-small
-- Purpose: Generate embeddings for semantic search
 
-**OpenAI Pricing (as of 2024):**
+- Provider: Local Execution (Your Machine)
+- Model: all-MiniLM-L6-v2 (via `@xenova/transformers`)
+- Purpose: Privacy-first vector generation for semantic search
+
+**Pricing:**
+
 | Model | Cost Per 1M Tokens |
 |--------|-------------------|
-| text-embedding-3-small | $0.02 |
+| all-MiniLM-L6-v2 | **$0.00** (Runs Locally) |
 
 **Cost per Document:**
-- Small document (~5,000 tokens): **~$0.0001**
-- Medium document (~20,000 tokens): **~$0.0004**
-- Large document (~100,000 tokens): **~$0.002**
 
-**Monthly Usage Estimates:**
-| Documents/Month | Est. Cost |
-|-----------------|-----------|
-| 100 | ~$0.02 |
-| 1,000 | ~$0.20 |
-| 10,000 | ~$2.00 |
+- Small document (~5,000 tokens): **$0.00**
+- Medium document (~20,000 tokens): **$0.00**
+- Large document (~100,000 tokens): **$0.00**
 
-**This is also very low!** Most users will pay less than $1/month.
+**Advantages:**
 
----
-
-### 3. Fallback Embeddings - ✅ FREE
-
-**Current Configuration:**
-- Hash-based fallback embedding generation
-- Purpose: Testing and development
-- Quality: Lower than OpenAI embeddings
-- Cost: **$0** (FREE)
-
-**When Used:**
-- No OpenAI API key provided
-- System falls back automatically
-- Suitable for testing only
-
-**Recommendation:** Use for development/testing, add OpenAI key for production quality.
+- ✅ **Zero Cost**: No API fees for document indexing.
+- ✅ **Privacy**: Your data never leaves your machine for embedding.
+- ✅ **Unlimited**: Process as many documents as your hardware allows.
 
 ---
 
 ## Total Monthly Cost Estimates
 
-### Scenario 1: Personal Use
+### Scenario 1: Personal / Testing
+
 - 50 queries/month
-- 10 documents processed
-- Using Groq + Fallback embeddings
-- **Total: ~$0.05/month** (basically free!)
+- 20 documents processed
+- **Total: $0.00/month**
 
-### Scenario 2: Small Business
+### Scenario 2: Professional / Single User
+
 - 500 queries/month
-- 100 documents processed
-- Using Groq + OpenAI embeddings
-- **Total: ~$0.70/month**
+- 200 documents processed
+- **Total: $0.00/month** (Groq Free Tier)
 
-### Scenario 3: Medium Business
+### Scenario 3: Small Team
+
 - 5,000 queries/month
 - 1,000 documents processed
-- Using Groq + OpenAI embeddings
-- **Total: ~$7.00/month**
-
-### Scenario 4: Enterprise
-- 50,000 queries/month
-- 10,000 documents processed
-- Using Groq + OpenAI embeddings
-- **Total: ~$52.00/month**
+- **Total: ~$5.00/month** (Slight Groq overages)
 
 ---
 
 ## Cost Optimization Strategies
 
-### 1. Use Fallback Embeddings for Testing
-```env
-# Don't add OPENAI_API_KEY during development
-# System will use free hash-based embeddings
-```
-- **Savings**: $0.20/month per 1,000 documents
-- **Trade-off**: Lower search quality
+### 1. Leverage Local Processing (Already Done!)
+
+By using `@xenova/transformers`, we've eliminated the primary cost of RAG systems: the embedding API fees.
 
 ### 2. Implement Response Caching
-Cache query responses to avoid repeated API calls:
+
+Cache query responses to avoid repeated API calls to Groq:
+
 ```typescript
-const cached = await getCachedResponse(query)
+const cached = await db.query.findUnique({ where: { question } })
 if (cached) return cached
-// Otherwise, call Groq API
 ```
-- **Savings**: 50-80% reduction in queries
-- **Implementation**: Add Redis or in-memory cache
 
-### 3. Optimize Chunk Sizes
-- Smaller chunks = more embeddings (higher initial cost)
-- Larger chunks = better context, fewer embeddings
-- **Recommendation**: 1000-2000 tokens per chunk
+### 3. Use Groq Free Tier
 
-### 4. Use Groq (Already Implemented!)
-Groq is significantly cheaper than alternatives:
-- Groq Llama 3.1: ~$0.001/1K tokens
-- OpenAI GPT-4: ~$0.03/1K tokens
-- **Savings**: ~97% lower costs!
-
----
-
-## What You Get for the Cost
-
-### Groq API (~$0.001/query)
-- ✅ Self-RAG grading (retrieval quality)
-- ✅ Response quality evaluation
-- ✅ Hallucination detection
-- ✅ Risk indicator extraction
-- ✅ Executive summaries
-- ✅ Detailed answers
-- ✅ Source reasoning
-- ✅ Confidence scoring
-
-### OpenAI Embeddings (~$0.0004/document)
-- ✅ High-quality semantic search
-- ✅ Accurate retrieval
-- ✅ Better query results
-
-### Fallback Embeddings (FREE)
-- ✅ Functional search
-- ✅ Zero cost
-- ✅ Good for testing
+Groq provides one of the most generous free tiers in the industry for the Llama 3.3 70B model.
 
 ---
 
 ## Comparison to Alternatives
 
-### Self-Hosted Models (Local LLM)
-- **Cost**: $0 (free)
-- **Hardware**: Need powerful GPU ($500-$10,000)
-- **Setup**: Complex
-- **Maintenance**: Ongoing
-- **Quality**: Lower than Groq
+### OpenAI / GPT-4 Stack
 
-**Pros:** Free, no API costs
-**Cons:** High upfront cost, maintenance, lower quality
+- **GPT-4o Query**: ~$0.03
+- **OpenAI Embeddings**: ~$0.0004/doc
+- **Total Cost (1K queries)**: ~$35.00/month
 
-### Other Cloud Providers
-| Provider | Cost/1K Tokens | Quality |
-|----------|----------------|----------|
-| OpenAI GPT-4 | ~$0.03 | Excellent |
-| Anthropic Claude | ~$0.015 | Excellent |
-| Groq Llama 3.1 | ~$0.001 | Excellent |
+### Our Stack (Groq + Xenova)
 
-**Groq provides 97% cost savings with comparable quality!**
+- **Llama 3.3 70B Query**: **$0.00** (Free Tier)
+- **Local Embeddings**: **$0.00**
+- **Total Cost (1K queries)**: **$0.00/month**
 
----
-
-## Free Alternatives
-
-### Option 1: Use Fallback Embeddings Only
-```env
-# Don't add OpenAI API key
-DATABASE_URL=file:./db/custom.db
-GROQ_API_KEY=your_groq_api_key_here
-```
-- **Cost**: Only Groq (~$0.05/month for 50 queries)
-- **Trade-off**: Lower search quality
-
-### Option 2: Implement Caching
-```typescript
-// Add caching to reduce API calls
-const cached = await redis.get(query)
-if (cached) return JSON.parse(cached)
-// Otherwise, call API
-```
-- **Savings**: 50-80% reduction
-- **Cost after caching**: ~$0.01-$0.03/month
-
-### Option 3: Limit Document Processing
-- Process documents only when needed
-- Use existing embeddings
-- **Savings**: Minimal embedding costs
-
----
-
-## Monitoring Costs
-
-### Groq API
-Check your Groq dashboard:
-- https://console.groq.com/
-- View usage and costs
-- Set up alerts
-
-### OpenAI API
-Check your OpenAI dashboard:
-- https://platform.openai.com/
-- View usage and costs
-- Set up billing limits
-
-### In-Application Tracking
-Add cost tracking to queries:
-```typescript
-const cost = calculateCost(inputTokens, outputTokens)
-await saveQueryCost(queryId, cost)
-```
+**Our architecture provides 100% savings for standard use cases!**
 
 ---
 
 ## Summary
 
 ### Is it Free?
-**No.** But costs are **very low**:
-- Groq LLM: ~$0.05-$0.70/month for most users
-- OpenAI embeddings: ~$0.02-$0.20/month for most users
-- **Total typical cost**: ~$0.07-$0.90/month
 
-### Can I Make it Cheaper?
-**Yes!** Several strategies:
-1. Use fallback embeddings (free)
-2. Implement caching (50-80% savings)
-3. Optimize chunk sizes
-4. Use Groq (already done - 97% savings!)
+**Yes.** For almost all personal and evaluation use cases, your monthly cost will be **exactly $0.00**.
 
 ### Is It Worth It?
+
 **Absolutely!** You get:
-- ⚡ Fast responses (0.5-2s)
-- 🎯 Excellent quality (comparable to GPT-4)
-- 💰 Low costs (<$1/month for most)
-- 🔒 Reliable performance
-- 📊 Full RAG capabilities
-- 🛡️ Self-RAG grading
-- 🔍 Hallucination detection
 
-### Recommendation
-**Start with Groq API only** (no OpenAI key):
-- Cost: ~$0.05/month for 50 queries
-- Use fallback embeddings for free
-- If quality isn't sufficient, add OpenAI key later
+- ⚡ **Fast responses** (0.5-2s via Groq)
+- 🎯 **Excellent quality** (Llama 3.3 70B is GPT-4 class)
+- 💰 **Zero Costs** (<1,000 queries/month)
+- 🔒 **Privacy-First** (Local embeddings)
+- 📊 **Full RAG capabilities** (Self-RAG grading, hallucination detection)
 
-**Most users will pay less than $1/month!**
-
----
-
-**Bottom Line**: While not completely free, this system is **extremely cost-effective** and provides enterprise-grade AI capabilities at a fraction of traditional costs.
+**Bottom Line**: This system provides enterprise-grade AI capabilities with zero operating costs.

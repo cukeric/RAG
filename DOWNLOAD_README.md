@@ -56,44 +56,44 @@
 
 #### Step 1: Navigate to Project Directory
 ```bash
-cd /home/z/my-project
+cd /home/user/my-project
 ```
 
 #### Step 2: Create Download Package
 ```bash
 # Create a clean download package
-mkdir -p plant-intelligence-systems-download
+mkdir -p RAG-decision-support-download
 
 # Copy core application files
-cp -r src plant-intelligence-systems-download/
-cp -r prisma plant-intelligence-systems-download/
-cp -r db plant-intelligence-systems-download/
-cp package.json plant-intelligence-systems-download/
-cp bun.lock plant-intelligence-systems-download/
-cp tsconfig.json plant-intelligence-systems-download/
-cp tailwind.config.ts plant-intelligence-systems-download/
-cp postcss.config.mjs plant-intelligence-systems-download/
-cp next.config.ts plant-intelligence-systems-download/
-cp eslint.config.mjs plant-intelligence-systems-download/
-cp components.json plant-intelligence-systems-download/
+cp -r src RAG-decision-support-download/
+cp -r prisma RAG-decision-support-download/
+cp -r db RAG-decision-support-download/
+cp package.json RAG-decision-support-download/
+cp bun.lock RAG-decision-support-download/
+cp tsconfig.json RAG-decision-support-download/
+cp tailwind.config.ts RAG-decision-support-download/
+cp postcss.config.mjs RAG-decision-support-download/
+cp next.config.ts RAG-decision-support-download/
+cp eslint.config.mjs RAG-decision-support-download/
+cp components.json RAG-decision-support-download/
 
 # Copy documentation
-cp -r *.md plant-intelligence-systems-download/
+cp -r *.md RAG-decision-support-download/
 
 # Copy test files
-cp -r test-docs plant-intelligence-systems-download/
+cp -r test-docs RAG-decision-support-download/
 
 # Copy environment template
-cp .env plant-intelligence-systems-download/.env.example
+cp .env RAG-decision-support-download/.env.example
 
 # Create archive
-cd plant-intelligence-systems-download
-zip -r ../plant-intelligence-systems-v1.0.zip .
+cd RAG-decision-support-download
+zip -r ../RAG-decision-support-v1.0.zip .
 cd ..
 ```
 
 #### Step 3: Download the Archive
-The archive `plant-intelligence-systems-v1.0.zip` is now ready for download.
+The archive `RAG-decision-support-v1.0.zip` is now ready for download.
 
 ---
 
@@ -102,25 +102,25 @@ The archive `plant-intelligence-systems-v1.0.zip` is now ready for download.
 #### Core Files Only (Minimum Viable System)
 ```bash
 # Create minimal package
-mkdir -p plant-intelligence-minimal
+mkdir -p rag-decision-support-minimal
 
 # Copy essential files
-cp -r src plant-intelligence-minimal/
-cp -r prisma plant-intelligence-minimal/
-cp package.json plant-intelligence-minimal/
-cp bun.lock plant-intelligence-minimal/
-cp tsconfig.json plant-intelligence-minimal/
-cp tailwind.config.ts plant-intelligence-minimal/
-cp next.config.ts plant-intelligence-minimal/
-cp .env plant-intelligence-minimal/.env.example
+cp -r src rag-decision-support-minimal/
+cp -r prisma rag-decision-support-minimal/
+cp package.json rag-decision-support-minimal/
+cp bun.lock rag-decision-support-minimal/
+cp tsconfig.json rag-decision-support-minimal/
+cp tailwind.config.ts rag-decision-support-minimal/
+cp next.config.ts rag-decision-support-minimal/
+cp .env rag-decision-support-minimal/.env.example
 
 # Copy essential documentation
-cp QUICK_START.md plant-intelligence-minimal/
-cp DOCUMENTATION_INDEX.md plant-intelligence-minimal/
+cp QUICK_START.md rag-decision-support-minimal/
+cp DOCUMENTATION_INDEX.md rag-decision-support-minimal/
 
 # Create archive
-cd plant-intelligence-minimal
-zip -r ../plant-intelligence-systems-minimal-v1.0.zip .
+cd rag-decision-support-minimal
+zip -r ../RAG-decision-support-minimal-v1.0.zip .
 cd ..
 ```
 
@@ -136,15 +136,15 @@ cd ..
 ### Prerequisites
 - Node.js 18+ or Bun runtime
 - Groq API key (get free at https://console.groq.com)
-- OpenAI API key (optional, for embeddings)
+- OpenAI API key (optional)
 - 2GB+ RAM available
 
 ### Local Deployment
 
 #### Step 1: Extract Files
 ```bash
-unzip plant-intelligence-systems-v1.0.zip
-cd plant-intelligence-systems-v1.0
+unzip RAG-decision-support-v1.0.zip
+cd RAG-decision-support-v1.0
 ```
 
 #### Step 2: Install Dependencies
@@ -202,14 +202,14 @@ vercel
 #### Option 2: Docker
 ```bash
 # Build Docker image
-docker build -t plant-intelligence-systems .
+docker build -t RAG-decision-support .
 
 # Run container
 docker run -p 3000:3000 \
   -e DATABASE_URL="file:./db/custom.db" \
   -e GROQ_API_KEY="your-groq-api-key" \
   -e OPENAI_API_KEY="your-openai-api-key" \
-  plant-intelligence-systems
+  RAG-decision-support
 ```
 
 #### Option 3: VPS/Cloud Server
@@ -227,7 +227,7 @@ bun run db:push
 
 # Start with PM2 (process manager)
 bun install -g pm2
-pm2 start bun --name "plant-intelligence" -- run start
+pm2 start bun --name "rag-decision-support" -- run start
 pm2 save
 pm2 startup
 ```
@@ -347,7 +347,7 @@ Response:
 ## File Structure
 
 ```
-plant-intelligence-systems-v1.0/
+RAG-decision-support-v1.0/
 ├── src/
 │   ├── app/
 │   │   ├── page.tsx                    # Main UI
@@ -498,15 +498,15 @@ lsof -ti:3000 | xargs kill -9
 
 ### Groq Free Tier
 - **3,000+ queries/month** - FREE
-- **Llama 3.1 70B model** - High quality
+- **Llama 3.3 70B model** - High quality
 - **Fast inference** - Low latency
 
-### OpenAI Embeddings
-- **text-embedding-3-small**: ~$0.02 per 1M tokens
+### Local Xenova Embeddings
+- **all-MiniLM-L6-v2**: $0.00 (Local)
 - **Typical monthly cost**: $0.05 - $0.50
 
 ### Total Monthly Cost
-- **Free tier**: $0 - $0.50/month
+- **Free tier**: $0.00/month
 - **Paid tier**: $20 - $50/month (if exceeding free limits)
 
 See [COST_ANALYSIS.md](./COST_ANALYSIS.md) for detailed cost breakdown.

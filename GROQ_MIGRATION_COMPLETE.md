@@ -9,14 +9,14 @@ Successfully migrated the RAG Decision Support System to use **Groq API** for al
 ## What Changed
 
 ### Before
-- **LLM Provider**: OpenAI GPT-4o
-- **Embeddings**: OpenAI text-embedding-3-small
+- **LLM Provider**: OpenAI Llama 3.3 70B
+- **Embeddings**: Local Xenova Embeddings (@xenova/transformers)
 - **Response Time**: ~2-5 seconds per operation
 - **Cost**: Higher per-token pricing
 
 ### After
-- **LLM Provider**: Groq Llama 3.1 70B Versatile
-- **Embeddings**: OpenAI text-embedding-3-small (optional) OR fallback hash-based
+- **LLM Provider**: Groq Llama 3.3 70B
+- **Embeddings**: Local Xenova Embeddings (@xenova/transformers) (optional) OR fallback hash-based
 - **Response Time**: ~0.5-2 seconds per operation
 - **Cost**: Significantly lower per-token pricing
 
@@ -30,7 +30,7 @@ Successfully migrated the RAG Decision Support System to use **Groq API** for al
 - All LLM operations now use Groq
 
 ### 2. `/src/lib/embedding-service.ts`
-- Added fallback embedding generation for cases without OpenAI key
+- Added fallback embedding generation for cases without Groq API key
 - Maintains OpenAI embeddings as recommended option
 - Graceful error handling
 
@@ -78,7 +78,7 @@ Successfully migrated the RAG Decision Support System to use **Groq API** for al
 ## Groq API Configuration
 
 ### Model
-**Llama 3.1 70B Versatile** (`llama-3.1-70b-versatile`)
+**Llama 3.3 70B** (`llama-3.1-70b-versatile`)
 
 ### API Key
 ```
@@ -108,19 +108,19 @@ const result = await generateObject({
 ## Performance Improvements
 
 ### Speed
-| Operation | Before (GPT-4o) | After (Llama 3.1) | Improvement |
+| Operation | Before (Llama 3.3 70B) | After (Llama 3.3) | Improvement |
 |-----------|------------------|-------------------|-------------|
 | Retrieval Grading | 2-3s | 0.5-1s | 2-3x faster |
 | Response Grading | 3-4s | 1-1.5s | 2-3x faster |
 | Output Generation | 3-5s | 1-2s | 2-3x faster |
 
 ### Cost
-- **Before**: OpenAI GPT-4o pricing
-- **After**: Groq Llama 3.1 pricing
+- **Before**: OpenAI Llama 3.3 70B pricing
+- **After**: Groq Llama 3.3 pricing
 - **Savings**: ~50-70% reduction in LLM costs
 
 ### Quality
-- Llama 3.1 70B provides quality comparable to GPT-4
+- Llama 3.3 70B provides quality comparable to Llama 3.3 70B
 - Excellent structured output generation
 - Strong reasoning and evaluation capabilities
 
@@ -128,7 +128,7 @@ const result = await generateObject({
 
 ## Embeddings Strategy
 
-### Option 1: OpenAI Embeddings (Recommended)
+### Option 1: Local Xenova Embeddings (Recommended)
 ```env
 OPENAI_API_KEY=your-openai-api-key
 ```
@@ -183,7 +183,7 @@ bun run dev
 ### Logs
 All Groq API calls are logged:
 ```typescript
-console.log('Using Groq Llama 3.1 70B for:', taskType)
+console.log('Using Groq Llama 3.3 70B for:', taskType)
 ```
 
 ### Error Handling
@@ -223,7 +223,7 @@ try {
 
 ✅ **2-3x Faster Inference**: Sub-second responses for most operations
 ✅ **50-70% Cost Reduction**: Lower per-token pricing
-✅ **Excellent Quality**: Comparable to GPT-4
+✅ **Excellent Quality**: Comparable to Llama 3.3 70B
 ✅ **Reliable**: Stable API with generous rate limits
 ✅ **Structured Output**: Great at JSON/schema validation
 ✅ **Easy Migration**: Minimal code changes required
@@ -242,7 +242,7 @@ try {
 
 ## Conclusion
 
-The RAG Decision Support System now uses **Groq's Llama 3.1 70B** for all LLM operations, providing:
+The RAG Decision Support System now uses **Groq's Llama 3.3 70B** for all LLM operations, providing:
 
 ⚡ **Faster Inference** (2-3x speedup)
 💰 **Lower Costs** (50-70% reduction)

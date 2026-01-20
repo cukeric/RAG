@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "RAG Decision Support System",
   description: "AI-Powered Manufacturing & Quality Analytics Platform",
   keywords: ["Manufacturing", "Quality Analytics", "Enterprise", "RAG", "Decision Support"],
-  authors: [{ name: "Enterprise RAG Team" }],
+  authors: [{ name: "AI RAG Team" }],
   icons: {
     icon: "/favicon.ico",
   },

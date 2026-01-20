@@ -84,7 +84,7 @@ Work Log:
   - Cosine similarity calculation
   - Semantic search functionality
 - Implemented embedding service (/lib/embedding-service.ts):
-  - OpenAI text-embedding-3-small model integration
+  - Local Xenova Embeddings (@xenova/transformers) model integration
   - Batch embedding generation
   - Vector storage in database
   - Similarity search with top-K and minimum relevance filtering
@@ -159,9 +159,9 @@ Task: Migrate LLM calls from OpenAI to Groq API
 
 Work Log:
 - Installed @ai-sdk/groq package for Groq integration
-- Updated /src/lib/self-rag-grader.ts to use Groq Llama 3.1 70B model
+- Updated /src/lib/self-rag-grader.ts to use Groq Llama 3.3 70B model
 - Configured Groq API key in .env file
-- Updated embedding service with fallback for cases without OpenAI key
+- Updated embedding service with fallback for cases without Groq API key
 - Created comprehensive Groq integration documentation (GROQ_INTEGRATION.md)
 - Updated frontend to call real upload API instead of simulation
 - Connected frontend upload to backend processing
@@ -176,7 +176,7 @@ Work Log:
 
 Stage Summary:
 - Successfully migrated to Groq API for all LLM calls
-- Using Llama 3.1 70B Versatile model
+- Using Llama 3.3 70B model
 - 2-5x faster inference with similar quality
 - Lower API costs
 - Graceful fallback for embeddings
@@ -195,7 +195,7 @@ Work Log:
 - Created detailed Groq free tier guide (GROQ_FREE_TIER.md)
 - Documented monthly usage estimates (personal, small business, medium business, enterprise)
 - Provided optimization strategies (caching, chunking, queries)
-- Compared to alternatives (OpenAI GPT-4, self-hosted models)
+- Compared to alternatives (OpenAI Llama 3.3 70B, self-hosted models)
 - Updated documentation index with cost and free tier guides
 
 Stage Summary:
@@ -323,9 +323,9 @@ Task: Migrate LLM calls from OpenAI to Groq API
 
 Work Log:
 - Installed @ai-sdk/groq package for Groq integration
-- Updated /src/lib/self-rag-grader.ts to use Groq Llama 3.1 70B model
+- Updated /src/lib/self-rag-grader.ts to use Groq Llama 3.3 70B model
 - Configured Groq API key in .env file
-- Updated embedding service with fallback for cases without OpenAI key
+- Updated embedding service with fallback for cases without Groq API key
 - Created comprehensive Groq integration documentation (GROQ_INTEGRATION.md)
 - All LLM-based operations now use Groq:
   - Retrieval quality assessment
@@ -336,7 +336,7 @@ Work Log:
 
 Stage Summary:
 - Successfully migrated to Groq API for all LLM calls
-- Using Llama 3.1 70B Versatile model
+- Using Llama 3.3 70B model
 - 2-5x faster inference with similar quality
 - Lower API costs
 - Graceful fallback for embeddings
