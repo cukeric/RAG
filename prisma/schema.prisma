@@ -1,0 +1,95 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// RAG Decision Support System Models
+
+model Document {
+  id          String   @id @default(cuid())
+  fileName    String
+  fileType    String
+  fileSize    Int
+  uploadedAt  DateTime @default(now())
+  processedAt DateTime?
+  status      String   @default("pending") // pending, processing, completed, failed
+  metadata    String?  // JSON metadata
+  chunks      Chunk[]
+  queries     Query[]
+}
+
+model Chunk {
+  id          String   @id @default(cuid())
+  documentId  String
+  document    Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  content     String
+  chunkIndex  Int
+  embedding   String   // Vector stored as JSON array
+  metadata    String?  // JSON metadata (page number, section, etc.)
+  createdAt   DateTime @default(now())
+  citations   Citation[]
+}
+
+model Query {
+  id              String   @id @default(cuid())
+  documentId      String?
+  document        Document? @relation(fields: [documentId], references: [id], onDelete: SetNull)
+  question        String
+  answer          String?
+  summary         String?
+  riskIndicators  String?  // JSON array of risk indicators
+  confidenceScore Float?
+  sourceReasoning String?  // JSON array of source reasoning steps
+  citations       Citation[]
+  ragGrades       RagGrade[]
+  createdAt       DateTime @default(now())
+}
+
+model Citation {
+  id          String @id @default(cuid())
+  chunkId     String
+  chunk       Chunk  @relation(fields: [chunkId], references: [id], onDelete: Cascade)
+  queryId     String
+  query       Query  @relation(fields: [queryId], references: [id], onDelete: Cascade)
+  relevance   Float
+  used        Boolean @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model RagGrade {
+  id          String   @id @default(cuid())
+  queryId     String
+  query       Query    @relation(fields: [queryId], references: [id], onDelete: Cascade)
+  gradeType   String   // retrieval_quality, response_relevance, hallucination_check
+  score       Float
+  reason      String?
+  createdAt   DateTime @default(now())
+}
